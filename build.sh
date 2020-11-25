@@ -9,5 +9,5 @@ for f in linux/*.c; do
 	if grep "__NR_mmap2" $f; then
 		flags="-m32"
 	fi
-	gcc "$f" -static -pthread $flags -o $out
+	gcc "$f" -static -pthread $flags -o $out && strip --strip-debug $out
 done
